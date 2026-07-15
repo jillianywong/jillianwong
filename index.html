@@ -1,56 +1,414 @@
 <!DOCTYPE html>
-<html>
-     <style>
-           body {font-family: arial; 
-          font-size: 11px;}
-            head {   font-size: 11px;
-            font: arial;}
-</style>
-A world become one of salads and sun <br>
-Only a fool would say that <br>
-A boy with a plan, a natural man <br>
-Wearing a white Stetson hat <br> <br>
-    
-Unhand that gun begone <br>
-There's no one to fire upon <br>
-If he's holding it high <br>
-He's telling a lie <br> <br>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EF State</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: row;
+      min-height: 100vh;
+    }
 
-I heard it was you <br>
-Talking 'bout a world where all is free <br>
-It just couldn't be <br>
-And only a fool would say that <br> <br>
-    
-The man in the street dragging his feet <br>
-Don't wanna hear the bad news <br>
-Imagine your face there is his place <br>
-Standing inside his brown shoes <br> <br>
-    
-You do his nine to five <br>
-Drag yourself home half alive <br>
-And there on the screen <br>
-A man with a dream <br> <br>
-    
-I heard it was you <br>
-Talking 'bout a world where all is free <br>
-It just couldn't be <br>
-And only a fool would say that <br> <br>
-    
-Anybody on the street <br>
-Has murder in his eyes <br>
-You feel no pain <br>
-And you're younger than you realize <br>
-Only a fool would say that <br>
-Only a fool <br> <br>
+    .sidebar {
+      width: 250px;
+      background-color: #fff;
+      padding: 20px;
+      box-sizing: border-box;
+    }
 
-I heard it was you <br>
-Talking 'bout a world where all is free <br>
-It just couldn't be <br>
-And only a fool would say that <br> <br>
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar li {
+      margin-bottom: 10px;
+      cursor: pointer;
+      color: #000;
+      font-size: 14px;
+    }
+
+    .sidebar li:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .work-images {
+      display: none;
+    }
+
+    .work-images.active {
+      display: block;
+    }
+
+    .work-item {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+   .caption {
+  font-size: 14px;
+  line-height: 1.5;
+  flex: 1; 
+}
+
+
+    .caption em {
+      font-style: italic;
+    }
+
+    .image-gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .image-gallery img {
+      height: auto;
+      margin-bottom: 10px; 
+      border-radius: 0px;
+    }
+
+    .landscape-img {
+      width: 90%;
+      max-width: 700px;
+    }
+
+    .portrait-img {
+      width: 100%;
+      max-width: 500px; /* Increased size for portrait */
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .sidebar ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .sidebar li {
+        flex: 1 1 auto;
+      }
+
+      .content {
+        padding: 15px;
+      }
+
+      .work-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .image-gallery {
+        align-items: flex-start;
+      }
+
+      .landscape-img, .portrait-img {
+        width: 100% !important;
+        max-width: none !important;
+      }
+    }
+  </style>
+  <script>
+    function showWork(id) {
+      document.querySelectorAll('.work-images').forEach(el => el.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+</head>
+<body>
+
+  <div class="sidebar">
+    <ul>
+      <li onclick="showWork('thesaurus')">Thesaurus at</li>
+      <li onclick="showWork('cleat')">Cleat</li>
+      <li onclick="showWork('ninety')">Ninety nine percent</li>
+      <li onclick="showWork('noun')">Noun</li>
+      <li onclick="showWork('lushlocklean')">Lushlocklean</li>
+      <li onclick="showWork('descriptionofadoor')">Description of a door</li>
+      <li onclick="showWork('leflaneur')">Le flâneur</li>
+       <li onclick="showWork('darn')">Darn</li>
+      <li onclick="showWork('untitled')">Untitled (Critique on site specificity)</li>
+      <li onclick="showWork('eccepulvis')">Ecce Pulvis</li>
+       <li onclick="showWork('eccemica')">Ecce Mica</li>
+      <li onclick="showWork('ecceamet')">Ecce Amet</li>
+     
+
+    </ul>
+    <div style="margin-top: 20px; font-size: 14px; color: #000;">
+      jillianywong@gmail.com
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- Thesaurus at -->
+    <div id="thesaurus" class="work-images active">
+      <div class="work-item">
+        <div class="caption">
+          <em>Thesaurus at</em>, 2025<br>
+          Antlers, basket, T-square<br>
+          31 x 52 x 40.5 in<br>
+        
+        </div>
+        <div class="image-gallery">
+          <img src="images/TA1.jpg" class="landscape-img TA1" alt="TA1">
+          <img src="images/TA2.jpg" class="landscape-img TA2" alt="TA2">
+          <img src="images/TA3.jpg" class="landscape-img TA3" alt="TA3">
+          <img src="images/TA4.JPG" class="landscape-img TA4" alt="TA4">
+          <img src="images/TA5.JPG" class="landscape-img TA5" alt="TA5">
+          <img src="images/TA6.JPG" class="landscape-img TA6" alt="TA6">
+        </div>
+      </div>
+    </div>
+
+    <!-- Cleat -->
+    <div id="cleat" class="work-images">
+      <div class="work-item">
+        <div class="caption">
+          <em>Cleat</em>, 2025<br>
+          Cans, rocks<br>
+          6 x 9 x 4 in <br>
+         
+        </div>
+        <div class="image-gallery">
+          <img src="images/Cleat.JPG" class="landscape-img" alt="Cleat">
+        </div>
+      </div>
+    </div>
+
+    <!-- Ninety nine percent -->
+    <div id="ninety" class="work-images">
+      <div class="work-item">
+        <div class="caption">
+          <em>Ninety nine percent</em>, 2025<br>
+          Pedestal, basketball hoop<br>
+          22.75 x 23.5 x 47 in<br>
+          
+        </div>
+        <div class="image-gallery">
+          <img src="images/NNP1.jpg" class="portrait-img" alt="NNP1">
+          <img src="images/NNP2.jpg" class="portrait-img" alt="NNP2">
+          <img src="images/NNP3.JPG" class="portrait-img" alt="NNP3">
+          <img src="images/NNP4.JPG" class="landscape-img" alt="NNP4">
+          <img src="images/NNP5.JPG" class="landscape-img" alt="NNP5">
+        </div>
+      </div>
+    </div>
+
+    <!-- Noun -->
+    <div id="noun" class="work-images">
+      <div class="work-item">
+        <div class="caption">
+          <em>Noun</em>, 2025<br>
+          Disassembled light fixture, duct tape, bag<br>
+          10.25 x 7.5 x 34 in<br>
+         
+        </div>
+        <div class="image-gallery">
+          <img src="images/N1.jpg" class="portrait-img" alt="N1">
+          <img src="images/N2.jpg" class="portrait-img" alt="N2">
+          <img src="images/N3.jpg" class="portrait-img" alt="N3">
+          <img src="images/N4.jpg" class="portrait-img" alt="N4">
+          <img src="images/N5.jpg" class="portrait-img" alt="N5">
+        </div>
+      </div>
+    </div>
+
+    <!-- Lushlocklean -->
+    <div id="lushlocklean" class="work-images">
+      <div class="work-item">
+        <div class="caption">
+          <em>Lushlocklean</em>, 2025<br>
+          Bicycle pedal, pipe, scaffolding clamp<br>
+          10 x 4 x 7 in<br>
+         
+        </div>
+        <div class="image-gallery">
+          <img src="images/LLL.JPG" class="landscape-img" alt="LLL">
+        </div>
+      </div>
+    </div>
+
+<!-- Darn -->
+    <div id="darn" class="work-images">
+      <div class="work-item">
+        <div class="caption">
+          <em>Darn</em>, 2025<br>
+          Plaster<br>
+          19 x 5 in
+        </div>
+        <div class="image-gallery">
+          <img src="images/Darn.jpg" class="landscape-img" alt="Darn">
+        </div>
+      </div>
+    </div>
+
+    <!-- Description of a door -->
+    <div id="descriptionofadoor" class="work-images">
+      <div class="work-item">
+        <div class="caption">
+          <em>Description of a door</em>, 2025<br>
+          Blue tape, paper<br>
+         30 x 35 in<br>
+“Walls are a nice invention, but if there were no holes in them there would be no way to get in or out–they would 
+be mausoleums or tombs. The problem is that if you make holes in the walls, anything and anyone can get in and out 
+    (cows, visitors, dust, rats, noise).” <br> — Bruno Latour<br>
+  Someone had marked what looked like two hole punches in the wall of the fifth-floor stairwell at the Parsons 25 
+  East Fifth building. I initially just took a photo of the found punches and left it alone but I returned and 
+  added another punch.<br>
+The following day, the Parsons maintenance staff had covered the holes with blue tape. I responded by punching 
+another hole just below the tape and covering it myself. When I came back again, I discovered that the tape had 
+been replaced by a sheet of cardboard screwed into the wall. The cardboard was cut into my favorite shape. It was 
+amazing. I printed out letter-sized images documenting the intervention and taped them next to the newly covered wall. 
+Then I measured the cardboard, printed a photo of the three original punches (the two I found and the one I added), and 
+attached the image directly to the cardboard using its screws. That night, I removed the photos. The next morning, 
+the wall was plastered over.<br>
+When I presented this for thesis critique, my professor—Catherine Telford Keogh, Director of the Parsons 
+BFA Program—inferred that this piece poses ethical concerns. I damaged school property 
+and intervened with the maintenance faculty who had to repair the wall. One of my peers said that it felt “icky” to 
+consider this art because I essentially forced the people who work in the building to participate 
+          without consent; that this was an unwilling collaboration. <br>
+After a private meeting with Catherine, I was contacted by the Director of Student Conduct and Community Standards 
+  and asked to attend a hearing for my case on March 5, 2025. The hearing went very well. I recorded and fully 
+    transcribed it. I was told to expect a fine within two weeks.<br>
+Instead, on April 22, 2025, I received an email from the Director requesting a 650–700 word “Educational Paper” 
+    reflecting on the incident, due by May 6, 2025. With support from confidential sources, I wrote and submitted the 
+      paper. I received a warm response in return.<br>
+Many of my classmates found the piece funny—one even signed their name on the plaster. Though the wall has been 
+          repaired, the plastered section remains visibly distinct. So, this piece continues. 
+
+        </div>
+        <div class="image-gallery">
+          <img src="images/D1.JPG" class="landscape-img" alt="D1">
+          <img src="images/D2.JPG" class="landscape-img" alt="D2">
+          <img src="images/D3.JPG" class="landscape-img" alt="D3">
+          <img src="images/D4.JPG" class="landscape-img" alt="D4">
+          <img src="images/D5.JPG" class="landscape-img" alt="D5">
+          <img src="images/D6.JPG" class="landscape-img" alt="D6">
+          <img src="images/D7.JPG" class="landscape-img" alt="D7">
+          <img src="images/D8.jpg" class="landscape-img" alt="D8">
+          <img src="images/D9.jpg" class="landscape-img" alt="D9">
+          <img src="images/D10.JPG" class="landscape-img" alt="D10">
+          <img src="images/D11.JPG" class="landscape-img" alt="D11">
+          <img src="images/D12.JPG" class="landscape-img" alt="D12">
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Le flâneur -->
+    <div id="leflaneur" class="work-images">
+      <div class="work-item">
+        <div class="caption">
+          <em>Le flâneur</em>, 2025<br>
+          Street sign, stroller<br>
+          Dimensions variable
+        </div>
+        <div class="image-gallery">
+          <img src="images/LeF1.JPG" class="landscape-img" alt="LeF1">
+          <img src="images/LeF2.JPG" class="landscape-img" alt="LeF2">
+          <img src="images/LeF3.JPG" class="landscape-img" alt="LeF3">
+          <img src="images/LeF4.JPG" class="landscape-img" alt="LeF4">
+        </div>
+      </div>
+    </div>
+
+       <!-- Untitled -->
+    <div id="untitled" class="work-images">
+      <div class="work-item">
+        <div class="caption">
+          <em>Untitled (Critique on site specificity)</em>, 2023<br>
+Basketball, sock, mop handle, toothpick, humidifier disc stack, cans, skateboard trucks, wood frame stand, broom, ping pong
+balls, steel rod, penny, container cap, orange, container<br>
+          Dimensions variable
+        </div>
+        <div class="image-gallery">
+          <img src="images/U1.JPG" class="landscape-img" alt="U1">
+          <img src="images/U2.JPG" class="portrait-img" alt="U2">
+          <img src="images/U3.JPG" class="portrait-img" alt="U3">
+          <img src="images/U4.JPG" class="landscape-img" alt="U4">
+          <img src="images/U5.JPG" class="landscape-img" alt="U5">
+          <img src="images/U6.JPG" class="landscape-img" alt="U6">
+          <img src="images/U7.JPG" class="landscape-img" alt="U7">
+          <img src="images/U8.JPG" class="portrait-img" alt="U8">
+          <img src="images/U9.JPG" class="landscape-img" alt="U9">
+          <img src="images/U10.JPG" class="landscape-img" alt="U10">
+          <img src="images/U11.JPG" class="landscape-img" alt="U11">
+
+        </div>
+      </div>
+    </div>
+
+      <!-- Ecce Pulvis -->
+    <div id="eccepulvis" class="work-images">
+      <div class="work-item">
+        <div class="caption">
+          <em>Ecce Pulvis</em>, 2025<br>
+          Photo-etch<br>
+         15 x 11 in
+        </div>
+        <div class="image-gallery">
+          <img src="images/EP.jpg" class="landscape-img" alt="EP">
+        </div>
+      </div>
+    </div>
+
+        <!-- Ecce Mica -->
+    <div id="eccemica" class="work-images">
+      <div class="work-item">
+        <div class="caption">
+          <em>Ecce Mica</em>, 2025<br>
+          Photo-etch<br>
+         15 x 11 in
+        </div>
+        <div class="image-gallery">
+          <img src="images/EM.jpg" class="landscape-img" alt="EM">
+        </div>
+      </div>
+    </div>
     
-Only a fool would say that <br>
-Only a fool would say that  <br>      
-    </body>
+     <!-- Ecce Amet -->
+    <div id="ecceamet" class="work-images">
+      <div class="work-item">
+        <div class="caption">
+          <em>Ecce Amet</em>, 2025<br>
+          Photo-etch<br>
+         15 x 11 in
+        </div>
+        <div class="image-gallery">
+          <img src="images/EA.jpg" class="landscape-img" alt="EA">
+        </div>
+      </div>
+    </div>
+
+ 
+
+
+  </div>
+</body>
 </html>
-
-
